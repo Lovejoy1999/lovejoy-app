@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lovejoy Dail Branding Poster with Script Draftsman</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-pink: #fdf2f2;
+            --bg-cream: #fff9f5;
+            --text-dark: #4a3b3b;
+            --gold-start: #bf953f;
+            --gold-mid: #fcf6ba;
+            --gold-end: #b38728;
+            --soft-shadow: 0 10px 30px -10px rgba(166, 124, 124, 0.2);
+            --accent-gold: #d4a373;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Playfair Display', serif;
+            background-color: #fceceb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        /* The Poster Container - Adjusted to be a functional web app card */
+        .poster {
+            width: 100%;
+            max-width: 500px; /* Slightly wider for better UI */
+            min-height: 90vh; /* Increased height */
+            background: radial-gradient(circle at 10% 20%, rgb(255, 246, 236) 0%, rgb(255, 236, 236) 90%);
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 8px solid #fff;
+            color: var(--text-dark);
+            border-radius: 15px;
+        }
+
+        /* Abstract Feminine Background Shapes */
+        .shape {
+            position: absolute;
+            filter: blur(60px);
+            z-index: 0;
+            opacity: 0.6;
+        }
+        .shape-1 { top: -10%; left: -20%; width: 400px; height: 400px; background: #ffe3e3; border-radius: 50%; }
+        .shape-2 { bottom: -5%; right: -10%; width: 350px; height: 350px; background: #fff0db; border-radius: 50%; }
+        .shape-3 { top: 40%; left: 30%; width: 200px; height: 200px; background: #ffd1d1; opacity: 0.4; border-radius: 50%; }
+
+        /* Silhouette / Image Overlay */
+        .silhouette-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60%;
+            background: url('https://images.unsplash.com/photo-1616091093729-c0463327eb58?q=80&w=1000&auto=format&fit=crop') no-repeat center bottom;
+            background-size: cover;
+            opacity: 0.15;
+            mix-blend-mode: multiply;
+            z-index: 0;
+            pointer-events: none;
+            mask-image: linear-gradient(to top, black 20%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to top, black 20%, transparent 100%);
+        }
+
+        /* Content Wrapper */
+        .content {
+            position: relative;
+            z-index: 2;
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+        }
+
+        /* Gold Gradient Text Class */
+        .gold-text {
+            background: linear-gradient(to right, var(--gold-start), var(--gold-mid), var(--gold-end), var(--gold-start));
+            background-size: 200% auto;
+            color: #000; /* Fallback */
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 4s linear infinite;
+        }
+
+        @keyframes shine {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        /* Header Area */
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+            width: 100%;
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            font-size: 1.8rem;
+            letter-spacing: 3px;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            line-height: 1.3;
+        }
+
+        .subtitle {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 2rem;
+            color: var(--accent-gold);
+            margin-top: -10px;
+            display: block;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+        }
+
+        /* Border accent */
+        .separator {
+            height: 1px;
+            width: 60px;
+            background: linear-gradient(to right, transparent, var(--accent-gold), transparent);
+            margin: 1.5rem auto;
+        }
+
+        /* Services List */
+        .services-list {
+            list-style: none;
+            width: 100%;
+            text-align: center;
+        }
+
+        .services-list li {
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            color: #5d4e4e;
+            position: relative;
+        }
+
+        /* Luxury bullet points */
+        .services-list li::before {
+            content: '•';
+            color: var(--accent-gold);
+            margin-right: 10px;
+            font-size: 1.2rem;
+            vertical-align: middle;
+        }
+
+        /* Glass Panel behind text */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            padding: 30px 20px;
+            border-radius: 20px;
+            width: 100%;
+            box-shadow: var(--soft-shadow);
+            margin-bottom: 30px;
+        }
+
+        /* Sparkles Animation */
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background-color: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 5px #fff, 0 0 10px #fcf6ba;
+            opacity: 0;
+            animation: twinkle 3s infinite ease-in-out;
+            z-index: 1;
+        }
+
+        /* Positioning sparkles randomly */
+        .s1 { top: 15%; left: 20%; animation-delay: 0s; transform: scale(0.8); }
+        .s2 { top: 25%; right: 15%; animation-delay: 1.5s; transform: scale(1.2); }
+        .s3 { top: 60%; left: 10%; animation-delay: 0.5s; }
+        .s4 { bottom: 20%; right: 25%; animation-delay: 2s; transform: scale(0.9); }
+        .s5 { top: 8%; right: 30%; animation-delay: 1s; width: 6px; height: 6px; }
+
+        @keyframes twinkle {
+            0% { opacity: 0; transform: scale(0.5); }
+            50% { opacity: 1; transform: scale(1.2) rotate(45deg); }
+            100% { opacity: 0; transform: scale(0.5); }
+        }
+
+        /* Decorative Border Frame */
+        .corner {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border-color: var(--accent-gold);
+            border-style: solid;
+            pointer-events: none;
+            z-index: 6;
+        }
+        .tl { top: 15px; left: 15px; border-width: 2px 0 0 2px; }
+        .tr { top: 15px; right: 15px; border-width: 2px 2px 0 0; }
+        .bl { bottom: 15px; left: 15px; border-width: 0 0 2px 2px; }
+        .br { bottom: 15px; right: 15px; border-width: 0 2px 2px 0; }
+
+        /* Footer */
+        .footer {
+            margin-top: auto;
+            font-size: 0.8rem;
+            color: #888;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding-top: 20px;
+        }
+
+        /* New AI Script Generator Section Styles */
+        .ai-section {
+            width: 100%;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 15px;
+            box-shadow: var(--soft-shadow);
+            margin-top: 15px;
+            border: 1px solid var(--accent-gold);
+        }
+
+        .ai-section h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            color: #6d5b5b;
+        }
+
+        .input-group select,
+        .input-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            background: #fff;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        #script-output {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px dashed var(--accent-gold);
+            background: var(--bg-cream);
+            border-radius: 8px;
+            min-height: 50px;
+            font-style: italic;
+            font-size: 0.95rem;
+            white-space: pre-wrap;
+            position: relative;
+        }
+        
+        #script-output.loading::after {
+            content: 'Drafting elegance...';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-gold);
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            font-style: normal;
+        }
+
+        .generate-btn {
+            display: block;
+            width: 100%;
+            background: linear-gradient(45deg, var(--gold-start), var(--accent-gold), var(--gold-end));
+            border: none;
+            padding: 12px 30px;
+            color: white;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(212, 163, 115, 0.5);
+            transition: all 0.3s ease;
+        }
+        
+        .generate-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(212, 163, 115, 0.6);
+        }
+        
+        .generate-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="poster">
+        <!-- Ambient Background Shapes -->
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+
+        <!-- Silhouette/Texture Overlay -->
+        <div class="silhouette-overlay"></div>
+
+        <!-- Animated Sparkles -->
+        <div class="sparkle s1"></div>
+        <div class="sparkle s2"></div>
+        <div class="sparkle s3"></div>
+        <div class="sparkle s4"></div>
+        <div class="sparkle s5"></div>
+
+        <!-- Decorative Border Frame -->
+        <div class="corner tl"></div>
+        <div class="corner tr"></div>
+        <div class="corner bl"></div>
+        <div class="corner br"></div>
+
+        <div class="content">
+            <header>
+                <h1 class="gold-text">Lovejoy Dail</h1>
+                <span class="subtitle">Call Services</span>
+                <div class="separator"></div>
+            </header>
+
+            <div class="glass-panel">
+                <ul class="services-list">
+                    <li>Birthday Calls</li>
+                    <li>Anniversary Calls</li>
+                    <li>Loyalty Test Calls</li>
+                    <li>Motivational Calls</li>
+                    <li>Professional Client Follow-up</li>
+                    <li>Customer Appreciation Calls</li>
+                    <li>Gentle Reminder Calls</li>
+                    <li>Personalized Comfort Calls</li>
+                    <li>Relationship Check-In Calls</li>
+                    <li>Special Event Message Calls</li>
+                </ul>
+            </div>
+            
+            <!-- Gemini API Integration Section -->
+            <div class="ai-section">
+                <h2>✨ Elegant Script Draftsman ✨</h2>
+                <div class="input-group">
+                    <label for="service-type">Select Service:</label>
+                    <select id="service-type">
+                        <option value="Birthday Call">Birthday Call</option>
+                        <option value="Anniversary Call">Anniversary Call</option>
+                        <option value="Motivational Call">Motivational Call</option>
+                        <option value="Gentle Reminder Call">Gentle Reminder Call</option>
+                        <option value="Relationship Check-In Call">Relationship Check-In Call</option>
+                        <option value="Personalized Comfort Call">Personalized Comfort Call</option>
+                    </select>
+                </div>
+                
+                <div class="input-group">
+                    <label for="context-input">Provide Context (e.g., "Friend is discouraged about a job search"):</label>
+                    <textarea id="context-input" rows="3" placeholder="Enter details for the call..."></textarea>
+                </div>
+                
+                <button class="generate-btn" id="generate-script-btn">Generate Script Draft</button>
+                
+                <div id="script-output" role="status" aria-live="polite">
+                    Your luxury call script will appear here.
+                </div>
+            </div>
+
+            <div class="footer">
+                Est. 2024
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        // Firebase and API Constants
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+
+        // Global Firebase vars
+        const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+        const __initial_auth_token = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+        const apiKey = "AIzaSyDIDIMHbGxX_dtlK8dSizzXNRk9nHIj2ZA"; // API key is handled by the environment
+
+        // DOM Elements
+        const generateButton = document.getElementById('generate-script-btn');
+        const serviceType = document.getElementById('service-type');
+        const contextInput = document.getElementById('context-input');
+        const scriptOutput = document.getElementById('script-output');
+
+        let auth, db, userId;
+        
+        // --- Firebase Initialization and Authentication ---
+        async function initFirebase() {
+            try {
+                const app = initializeApp(firebaseConfig);
+                auth = getAuth(app);
+                
+                if (__initial_auth_token) {
+                    await signInWithCustomToken(auth, __initial_auth_token);
+                } else {
+                    await signInAnonymously(auth);
+                }
+                userId = auth.currentUser?.uid || 'anonymous-user';
+                console.log("Firebase Auth initialized. User ID:", userId);
+            } catch (error) {
+                console.error("Error initializing Firebase:", error);
+                // Continue application flow even if auth fails
+                userId = 'anonymous-user-fallback';
+            }
+        }
+        
+        // --- Gemini API Call Logic ---
+        
+        // Utility for exponential backoff
+        const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+        async function fetchWithRetry(url, options, retries = 3) {
+            for (let i = 0; i < retries; i++) {
+                try {
+                    const response = await fetch(url, options);
+                    if (!response.ok) {
+                        // Check if it's a rate limit error (429) or server error (5xx)
+                        if (response.status === 429 || response.status >= 500) {
+                            throw new Error(`Server error with status: ${response.status}`);
+                        }
+                    }
+                    return response;
+                } catch (error) {
+                    console.error("Fetch attempt failed:", error);
+                    if (i < retries - 1) {
+                        const delay = Math.pow(2, i) * 1000;
+                        console.log(`Retrying in ${delay / 1000}s...`);
+                        await sleep(delay);
+                    } else {
+                        throw new Error("Failed to connect to the Gemini API after multiple retries.");
+                    }
+                }
+            }
+        }
+
+        async function generateScript() {
+            const selectedService = serviceType.value;
+            const context = contextInput.value.trim();
+
+            if (!context) {
+                scriptOutput.textContent = "Please provide context (who, what, why) for the call to draft the script.";
+                return;
+            }
+
+            // Set loading state
+            scriptOutput.textContent = "";
+            scriptOutput.classList.add('loading');
+            generateButton.disabled = true;
+
+            const systemPrompt = `You are a specialist in creating elegant, personalized, and chic phone call scripts for a luxury call service. The scripts must sound polished, warm, professional, and sophisticated. Use gentle, persuasive, and encouraging language. The script should be brief and suitable for a 1-3 minute conversation, focusing on the core message. Format the output neatly as a short script, including a suggested opening and closing line.`;
+            
+            const userQuery = `Generate a call script for a "${selectedService}" using the following specific context: "${context}".`;
+            
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] },
+            };
+            
+            try {
+                const response = await fetchWithRetry(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                const text = result.candidates?.[0]?.content?.parts?.[0]?.text;
+
+                if (text) {
+                    scriptOutput.textContent = text;
+                } else {
+                    console.error("API response error:", result);
+                    scriptOutput.textContent = "Error: Could not draft the script. Please try a different prompt or check the console.";
+                }
+
+            } catch (error) {
+                console.error("Error during API call:", error);
+                scriptOutput.textContent = `A communication error occurred: ${error.message}`;
+            } finally {
+                scriptOutput.classList.remove('loading');
+                generateButton.disabled = false;
+            }
+        }
+
+        // --- Event Listeners and Setup ---
+        window.onload = async () => {
+            await initFirebase();
+            generateButton.addEventListener('click', generateScript);
+        };
+        
+    </script>
+
+</body>
+</html>
