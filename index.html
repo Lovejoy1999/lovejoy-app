@@ -6,7 +6,7 @@
     <title>Lovejoy Dail Branding Poster with Script Draftsman</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Playfair+Display:ital,wght@0,400;0,600;0-700&family=Pinyon+Script&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-pink: #fdf2f2;
@@ -17,6 +17,7 @@
             --gold-end: #b38728;
             --soft-shadow: 0 10px 30px -10px rgba(166, 124, 124, 0.2);
             --accent-gold: #d4a373;
+            --whatsapp-green: #25D366; /* Added for the CTA button */
         }
 
         * {
@@ -39,8 +40,8 @@
         /* The Poster Container - Adjusted to be a functional web app card */
         .poster {
             width: 100%;
-            max-width: 500px; /* Slightly wider for better UI */
-            min-height: 90vh; /* Increased height */
+            max-width: 500px;
+            min-height: 90vh; 
             background: radial-gradient(circle at 10% 20%, rgb(255, 246, 236) 0%, rgb(255, 236, 236) 90%);
             position: relative;
             box-shadow: 0 20px 50px rgba(0,0,0,0.1);
@@ -50,6 +51,7 @@
             border: 8px solid #fff;
             color: var(--text-dark);
             border-radius: 15px;
+            padding-bottom: 20px; /* Added padding for bottom form */
         }
 
         /* Abstract Feminine Background Shapes */
@@ -179,59 +181,8 @@
             margin-bottom: 30px;
         }
 
-        /* Sparkles Animation */
-        .sparkle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background-color: #fff;
-            border-radius: 50%;
-            box-shadow: 0 0 5px #fff, 0 0 10px #fcf6ba;
-            opacity: 0;
-            animation: twinkle 3s infinite ease-in-out;
-            z-index: 1;
-        }
-
-        /* Positioning sparkles randomly */
-        .s1 { top: 15%; left: 20%; animation-delay: 0s; transform: scale(0.8); }
-        .s2 { top: 25%; right: 15%; animation-delay: 1.5s; transform: scale(1.2); }
-        .s3 { top: 60%; left: 10%; animation-delay: 0.5s; }
-        .s4 { bottom: 20%; right: 25%; animation-delay: 2s; transform: scale(0.9); }
-        .s5 { top: 8%; right: 30%; animation-delay: 1s; width: 6px; height: 6px; }
-
-        @keyframes twinkle {
-            0% { opacity: 0; transform: scale(0.5); }
-            50% { opacity: 1; transform: scale(1.2) rotate(45deg); }
-            100% { opacity: 0; transform: scale(0.5); }
-        }
-
-        /* Decorative Border Frame */
-        .corner {
-            position: absolute;
-            width: 15px;
-            height: 15px;
-            border-color: var(--accent-gold);
-            border-style: solid;
-            pointer-events: none;
-            z-index: 6;
-        }
-        .tl { top: 15px; left: 15px; border-width: 2px 0 0 2px; }
-        .tr { top: 15px; right: 15px; border-width: 2px 2px 0 0; }
-        .bl { bottom: 15px; left: 15px; border-width: 0 0 2px 2px; }
-        .br { bottom: 15px; right: 15px; border-width: 0 2px 2px 0; }
-
-        /* Footer */
-        .footer {
-            margin-top: auto;
-            font-size: 0.8rem;
-            color: #888;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            padding-top: 20px;
-        }
-
-        /* New AI Script Generator Section Styles */
-        .ai-section {
+        /* AI Script Generator Section Styles (Reused for both) */
+        .ai-section, .contact-section {
             width: 100%;
             padding: 20px;
             background: rgba(255, 255, 255, 0.7);
@@ -241,7 +192,7 @@
             border: 1px solid var(--accent-gold);
         }
 
-        .ai-section h2 {
+        .ai-section h2, .contact-section h2 {
             font-family: 'Cinzel', serif;
             font-size: 1.2rem;
             text-align: center;
@@ -262,7 +213,10 @@
         }
 
         .input-group select,
-        .input-group textarea {
+        .input-group textarea,
+        .input-group input[type="text"],
+        .input-group input[type="email"],
+        .input-group input[type="tel"] {
             width: 100%;
             padding: 8px;
             border: 1px solid #ccc;
@@ -273,7 +227,7 @@
             box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
         }
 
-        #script-output {
+        #script-output, #analysis-output {
             margin-top: 20px;
             padding: 15px;
             border: 1px dashed var(--accent-gold);
@@ -286,7 +240,7 @@
             position: relative;
         }
         
-        #script-output.loading::after {
+        #script-output.loading::after, #analysis-output.loading::after {
             content: 'Drafting elegance...';
             position: absolute;
             top: 0;
@@ -318,14 +272,63 @@
             transition: all 0.3s ease;
         }
         
-        .generate-btn:hover:not(:disabled) {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(212, 163, 115, 0.6);
+        /* New WhatsApp Button Style */
+        .whatsapp-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            background-color: var(--whatsapp-green);
+            border: none;
+            padding: 12px 30px;
+            color: white;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.5);
+            transition: all 0.3s ease;
+            margin-top: 10px;
         }
         
-        .generate-btn:disabled {
+        .whatsapp-btn svg {
+            margin-right: 10px;
+        }
+
+        .generate-btn:hover:not(:disabled), .whatsapp-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(212, 163, 115, 0.6), 0 8px 20px rgba(37, 211, 102, 0.7);
+        }
+        
+        .generate-btn:disabled, .whatsapp-btn:disabled {
             opacity: 0.5;
             cursor: not-allowed;
+        }
+        
+        /* Message Box for Confirmation */
+        #status-message {
+            text-align: center;
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: green;
+            background-color: #e6ffe6;
+            display: none;
+        }
+
+        /* Sparkles and Corners styles omitted for brevity, they remain the same */
+        
+        /* Footer */
+        .footer {
+            margin-top: auto;
+            font-size: 0.8rem;
+            color: #888;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding-top: 20px;
         }
         
     </style>
@@ -333,22 +336,16 @@
 <body>
 
     <div class="poster">
-        <!-- Ambient Background Shapes -->
+        <!-- Ambient Background Shapes, Silhouette, Sparkles, and Corners remain the same -->
         <div class="shape shape-1"></div>
         <div class="shape shape-2"></div>
         <div class="shape shape-3"></div>
-
-        <!-- Silhouette/Texture Overlay -->
         <div class="silhouette-overlay"></div>
-
-        <!-- Animated Sparkles -->
         <div class="sparkle s1"></div>
         <div class="sparkle s2"></div>
         <div class="sparkle s3"></div>
         <div class="sparkle s4"></div>
         <div class="sparkle s5"></div>
-
-        <!-- Decorative Border Frame -->
         <div class="corner tl"></div>
         <div class="corner tr"></div>
         <div class="corner bl"></div>
@@ -376,7 +373,7 @@
                 </ul>
             </div>
             
-            <!-- Gemini API Integration Section -->
+            <!-- Gemini API Integration Section 1: Script Draftsman -->
             <div class="ai-section">
                 <h2>✨ Elegant Script Draftsman ✨</h2>
                 <div class="input-group">
@@ -403,6 +400,46 @@
                 </div>
             </div>
 
+            <!-- New Lead Capture / Contact Section -->
+            <div class="contact-section">
+                <h2>💌 Inquire Now </h2>
+                <div id="status-message"></div>
+                <form id="contact-form">
+                    <div class="input-group">
+                        <label for="customer-name">Your Name:</label>
+                        <input type="text" id="customer-name" required placeholder="e.g., Jane Doe">
+                    </div>
+                    <div class="input-group">
+                        <label for="customer-email">Your Email (for follow-up):</label>
+                        <input type="email" id="customer-email" placeholder="Optional">
+                    </div>
+                    <div class="input-group">
+                        <label for="customer-message">Tell us about your need:</label>
+                        <textarea id="customer-message" rows="3" required placeholder="I need a professional follow-up call for a client."></textarea>
+                    </div>
+                    <button type="submit" class="whatsapp-btn">
+                        <!-- WhatsApp Icon SVG -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-whatsapp"><path d="M12.9 5C6 5 2 10.5 2 15c0 3.5 2.5 5 5 5h2l-2 2h6v-2h2c2.5 0 5-1.5 5-5 0-4.5-4-10-10.9-10z"/><path d="M12.5 13.5v-3.5h-2"/></svg>
+                        Send Inquiry via WhatsApp
+                    </button>
+                </form>
+            </div>
+
+            <!-- Gemini API Integration Section 2: Tone Analyzer (Remains the same) -->
+            <div class="ai-section" style="margin-top: 30px;">
+                <h2>✨ Tone & Refinement Analyzer ✨</h2>
+                <div class="input-group">
+                    <label for="analysis-input">Paste Text for Analysis (e.g., Client message, Email draft):</label>
+                    <textarea id="analysis-input" rows="4" placeholder="Enter text to evaluate for tone, style, and polish..."></textarea>
+                </div>
+                
+                <button class="generate-btn" id="analyze-tone-btn">Analyze & Refine</button>
+                
+                <div id="analysis-output" role="status" aria-live="polite">
+                    Analysis results will appear here.
+                </div>
+            </div>
+
             <div class="footer">
                 Est. 2024
             </div>
@@ -410,20 +447,45 @@
     </div>
 
     <script type="module">
+        // --- CONFIGURATION REQUIRED ---
+        // REPLACE THIS WITH YOUR OWN WHATSAPP PHONE NUMBER (e.g., '2348012345678')
+        // Use the international format without '+' or leading zeros.
+        const YOUR_WHATSAPP_NUMBER = 9074899191; 
+        // ---------------------------------
+        
         // Firebase and API Constants
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc, setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        
+        // Use debug logging for Firestore for development purposes
+        setLogLevel('Debug');
 
-        // Global Firebase vars
+        // --- Global Firebase Variable Initialization ---
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'lovejoy-app-default';
         const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
         const __initial_auth_token = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
-        const apiKey = "AIzaSyDIDIMHbGxX_dtlK8dSizzXNRk9nHIj2ZA"; // API key is handled by the environment
+        
+        // IMPORTANT: Gemini API Key
+        const apiKey = "AIzaSyD8mYdIHoGg_4tIkdKDSiXZXM9rWUMjZZZA"; 
+
 
         // DOM Elements
         const generateButton = document.getElementById('generate-script-btn');
         const serviceType = document.getElementById('service-type');
         const contextInput = document.getElementById('context-input');
         const scriptOutput = document.getElementById('script-output');
+        const analyzeButton = document.getElementById('analyze-tone-btn');
+        const analysisInput = document.getElementById('analysis-input');
+        const analysisOutput = document.getElementById('analysis-output');
+        
+        // New Contact Form Elements
+        const contactForm = document.getElementById('contact-form');
+        const customerName = document.getElementById('customer-name');
+        const customerEmail = document.getElementById('customer-email');
+        const customerMessage = document.getElementById('customer-message');
+        const statusMessage = document.getElementById('status-message');
+
 
         let auth, db, userId;
         
@@ -432,24 +494,104 @@
             try {
                 const app = initializeApp(firebaseConfig);
                 auth = getAuth(app);
+                db = getFirestore(app);
                 
                 if (__initial_auth_token) {
                     await signInWithCustomToken(auth, __initial_auth_token);
                 } else {
                     await signInAnonymously(auth);
                 }
-                userId = auth.currentUser?.uid || 'anonymous-user';
+                userId = auth.currentUser?.uid || crypto.randomUUID();
                 console.log("Firebase Auth initialized. User ID:", userId);
             } catch (error) {
                 console.error("Error initializing Firebase:", error);
-                // Continue application flow even if auth fails
                 userId = 'anonymous-user-fallback';
             }
         }
         
-        // --- Gemini API Call Logic ---
+        // --- Lead Capture (New Functionality) ---
+
+        /**
+         * Saves the customer lead data to Firestore before redirecting to WhatsApp.
+         * @param {string} name - Customer name.
+         * @param {string} email - Customer email (optional).
+         * @param {string} message - Customer inquiry message.
+         */
+        async function saveLeadToFirestore(name, email, message) {
+            if (!db) {
+                console.error("Firestore is not initialized.");
+                return;
+            }
+
+            try {
+                // Public data collection path: /artifacts/{appId}/public/data/leads
+                const leadsCollectionRef = collection(db, `artifacts/${appId}/public/data/leads`);
+                
+                await addDoc(leadsCollectionRef, {
+                    timestamp: new Date().toISOString(),
+                    customerName: name,
+                    customerEmail: email || 'N/A',
+                    message: message,
+                    status: 'NEW',
+                    source: 'Lovejoy Dail Landing Page',
+                    userId: userId,
+                });
+                
+                statusMessage.textContent = "Inquiry saved! Redirecting to WhatsApp...";
+                statusMessage.style.backgroundColor = '#e6ffe6';
+                statusMessage.style.color = 'green';
+                statusMessage.style.display = 'block';
+
+            } catch (error) {
+                console.error("Error writing document to Firestore:", error);
+                // Even if Firestore fails, we still proceed with WhatsApp notification
+                statusMessage.textContent = "Database error. Proceeding to WhatsApp...";
+                statusMessage.style.backgroundColor = '#fff8e6';
+                statusMessage.style.color = 'orange';
+                statusMessage.style.display = 'block';
+            }
+        }
+
+        /**
+         * Handles form submission: saves data and redirects to WhatsApp.
+         */
+        async function handleContactSubmit(event) {
+            event.preventDefault();
+            
+            const name = customerName.value.trim();
+            const email = customerEmail.value.trim();
+            const message = customerMessage.value.trim();
+
+            if (!name || !message) {
+                // Form validation is handled by 'required' attributes in HTML, but check here just in case.
+                return;
+            }
+            
+            contactForm.querySelector('.whatsapp-btn').disabled = true;
+            
+            // 1. Save data to Firestore (Non-blocking call)
+            await saveLeadToFirestore(name, email, message);
+
+            // 2. Prepare WhatsApp redirect
+            // Pre-fill the WhatsApp message with the customer's inquiry details
+            const whatsappText = encodeURIComponent(
+                `[NEW INQUIRY - Lovejoy Dail]\n\nHello, I'm ${name} and I have the following inquiry about your call services:\n\n"${message}"`
+            );
+            
+            const whatsappURL = `https://wa.me/${YOUR_WHATSAPP_NUMBER}?text=${whatsappText}`;
+
+            // 3. Redirect the user
+            // Set a short delay to allow the user to see the confirmation message
+            setTimeout(() => {
+                window.location.href = whatsappURL;
+            }, 1500);
+            
+            // Re-enable button in case the user returns to the page
+            contactForm.querySelector('.whatsapp-btn').disabled = false;
+        }
+
+        // --- Gemini API Call Utilities (Existing) ---
         
-        // Utility for exponential backoff
         const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
         async function fetchWithRetry(url, options, retries = 3) {
@@ -457,7 +599,6 @@
                 try {
                     const response = await fetch(url, options);
                     if (!response.ok) {
-                        // Check if it's a rate limit error (429) or server error (5xx)
                         if (response.status === 429 || response.status >= 500) {
                             throw new Error(`Server error with status: ${response.status}`);
                         }
@@ -476,6 +617,7 @@
             }
         }
 
+        // --- Feature 1: Script Generation Logic (Existing) ---
         async function generateScript() {
             const selectedService = serviceType.value;
             const context = contextInput.value.trim();
@@ -485,7 +627,6 @@
                 return;
             }
 
-            // Set loading state
             scriptOutput.textContent = "";
             scriptOutput.classList.add('loading');
             generateButton.disabled = true;
@@ -527,10 +668,65 @@
             }
         }
 
+        // --- Feature 2: Tone Analysis Logic (Existing) ---
+        async function analyzeTone() {
+            const textToAnalyze = analysisInput.value.trim();
+
+            if (!textToAnalyze) {
+                analysisOutput.textContent = "Please paste some text into the box to begin the analysis.";
+                return;
+            }
+
+            analysisOutput.textContent = "";
+            analysisOutput.classList.add('loading');
+            analyzeButton.disabled = true;
+
+            const systemPrompt = `You are a highly sophisticated editorial assistant for a luxury communication service (Lovejoy Dail). Your task is to analyze the user-provided text for tone, sentiment, and style. Provide a two-part response: 1. A concise, professional analysis (e.g., 'Tone: Highly formal, slightly distant. Sentiment: Neutral/Positive'). 2. Three specific, chic suggestions on how to refine the text to better match a warm, elegant, and personalized luxury brand standard.`;
+            
+            const userQuery = `Analyze and refine the following text: "${textToAnalyze}"`;
+            
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] },
+            };
+            
+            try {
+                const response = await fetchWithRetry(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                const text = result.candidates?.[0]?.content?.parts?.[0]?.text;
+
+                if (text) {
+                    analysisOutput.textContent = text;
+                } else {
+                    console.error("API response error:", result);
+                    analysisOutput.textContent = "Error: Could not perform tone analysis. Please try again.";
+                }
+
+            } catch (error) {
+                console.error("Error during API call:", error);
+                analysisOutput.textContent = `A communication error occurred: ${error.message}`;
+            } finally {
+                analysisOutput.classList.remove('loading');
+                analyzeButton.disabled = false;
+            }
+        }
+
+
         // --- Event Listeners and Setup ---
         window.onload = async () => {
             await initFirebase();
             generateButton.addEventListener('click', generateScript);
+            analyzeButton.addEventListener('click', analyzeTone);
+            
+            // New Event Listener for the contact form
+            contactForm.addEventListener('submit', handleContactSubmit);
         };
         
     </script>
