@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lovejoy Dail: Unified Communication Services</title>
+    <title>Lovejoy Dail: Premium Communication Services</title>
     <!-- Importing high-end serif and elegant script fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,7 +40,7 @@
 
         .container {
             width: 100%;
-            max-width: 650px; /* Slightly wider for better service segmentation */
+            max-width: 700px;
             background: var(--bg-cream);
             border-radius: 20px;
             box-shadow: var(--box-shadow);
@@ -55,16 +55,40 @@
             border-bottom: 1px solid rgba(163, 140, 100, 0.2);
             padding-bottom: 20px;
         }
+        
+        /* Keyframe for shimmering effect */
+        @keyframes shimmer {
+            0% { background-position: -400% 0; }
+            100% { background-position: 400% 0; }
+        }
 
-        h1 {
+        .shimmer-text {
             font-family: 'Cinzel', serif;
             font-weight: 700;
             font-size: 2.5rem;
             letter-spacing: 5px;
-            margin-bottom: 0.2rem;
             text-transform: uppercase;
-            color: var(--gold-primary);
+            
+            /* Apply the shimmering gradient */
+            background: linear-gradient(90deg, 
+                var(--gold-primary) 0%, 
+                var(--gold-accent) 25%, 
+                white 50%, 
+                var(--gold-accent) 75%, 
+                var(--gold-primary) 100%);
+            background-size: 400% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 10s ease-in-out infinite;
+
+            /* Fallback and Shadow */
+            color: var(--gold-primary); 
             text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            margin-bottom: 0.2rem;
+            /* h1 now inherits core styles from .shimmer-text */
         }
 
         .tagline {
@@ -105,7 +129,13 @@
             grid-template-columns: 1fr 1fr;
             gap: 15px;
         }
-
+        
+        @media (max-width: 500px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
         .service-item {
             background: #ffffff;
             padding: 15px;
@@ -115,13 +145,6 @@
             border-left: 3px solid var(--gold-accent);
         }
         
-        /* Ensure responsiveness for service grid */
-        @media (max-width: 500px) {
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
         .service-item strong {
             display: block;
             font-size: 1.1rem;
@@ -136,7 +159,134 @@
             line-height: 1.4;
         }
         
-        /* Call to Action Section Styling */
+        /* --- Testimonial Styles --- */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        @media (max-width: 500px) {
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .testimonial-card {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid var(--gold-accent);
+        }
+        
+        .quote {
+            font-style: italic;
+            font-size: 0.95rem;
+            color: #4a4040;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+        
+        .client-info {
+            text-align: right;
+            font-weight: 600;
+            color: var(--gold-primary);
+            font-size: 0.9rem;
+            font-family: 'Cinzel', serif;
+        }
+
+        /* --- Pricing Styles --- */
+        .pricing-grid {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        @media (max-width: 700px) {
+            .pricing-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        .price-card {
+            flex: 1;
+            min-width: 200px;
+            max-width: 280px;
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            border: 2px solid var(--gold-accent);
+            transition: all 0.3s ease;
+        }
+
+        .price-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        /* Highlight the middle tier for attention, even if it's not the highest price */
+        .price-card.premium { 
+            border-color: var(--gold-primary);
+            background: var(--bg-light);
+            transform: scale(1.05);
+        }
+        
+        .price-card.premium .price-tag {
+            background: linear-gradient(45deg, var(--gold-primary), var(--gold-accent));
+            color: white;
+            padding: 5px 15px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        
+        .price-card h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--gold-primary);
+        }
+        
+        .price-tag {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+        
+        .price-tag small {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: #6a6060;
+        }
+        
+        .features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .features li {
+            font-size: 0.9rem;
+            padding: 5px 0;
+            border-bottom: 1px dotted #e0d8d8;
+            color: #6a6060;
+        }
+        
+        .features li::before {
+            content: "✓ ";
+            color: var(--whatsapp-green);
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        /* --- CTA and AI Styles (Retained) --- */
         .cta-section {
             text-align: center;
             padding: 30px 0;
@@ -150,7 +300,6 @@
             color: var(--text-dark);
         }
 
-        /* Direct WhatsApp Link Styling (Guaranteed to work) */
         .whatsapp-link {
             display: inline-flex;
             align-items: center;
@@ -178,7 +327,6 @@
             background-color: #128C7E;
         }
         
-        /* Utility Section Styling (AI Tools) */
         .ai-section {
             padding: 30px 20px;
             background: var(--bg-light);
@@ -277,7 +425,7 @@
     <div class="container">
         <!-- HEADER -->
         <header>
-            <h1 id="brand-name">Lovejoy Dail</h1>
+            <h1 id="brand-name" class="shimmer-text">Lovejoy Dail</h1>
             <span class="tagline">Discreet, Professional, and Personal Communication</span>
         </header>
 
@@ -334,6 +482,61 @@
             </div>
         </section>
         
+        <!-- TESTIMONIALS SECTION -->
+        <section class="testimonials">
+            <h2>Client Endorsements</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="quote">"The conflict resolution call saved a key client relationship that was spiraling out of control. Absolute professionalism and diplomacy."</p>
+                    <p class="client-info">— E.R., Tech Startup CEO</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="quote">"I used the loyalty test call service and received an objective report that provided the clarity I needed. Discreet and invaluable."</p>
+                    <p class="client-info">— Anonymous, Private Client</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRICING SECTION (UPDATED TO V6) -->
+        <section class="pricing">
+            <h2>Service Pricing Guide</h2>
+            <div class="pricing-grid">
+                
+                <div class="price-card">
+                    <h4>Personal & Timed Calls</h4>
+                    <p class="price-tag">₦2,500 <small>/ starting price</small></p>
+                    <ul class="features">
+                        <li>Standard Calls (Birthday, Appreciation, Anniversary): ₦2,500</li>
+                        <li>Motivational & Loyalty Test Calls: ₦3,000</li>
+                        <li>**PREMIUM Early Morning (4AM - 7AM): ₦5,000**</li>
+                        <li>All calls up to 5 minutes</li>
+                    </ul>
+                </div>
+
+                <div class="price-card premium">
+                    <h4>Professional & Conflict</h4>
+                    <p class="price-tag">₦20,000 <small>/ per service</small></p>
+                    <ul class="features">
+                        <li>**Professional Voice Overs (Short Script): ₦20,000**</li>
+                        <li>Conflict Resolution (per incident)</li>
+                        <li>High-Stakes Call Pre-scripting</li>
+                        <li>Advanced Loyalty Testing & Reporting</li>
+                    </ul>
+                </div>
+
+                <div class="price-card">
+                    <h4>Virtual Assistance Suite</h4>
+                    <p class="price-tag">₦25,000 <small>/ 30 min block</small></p>
+                    <ul class="features">
+                        <li>**Executive Virtual Assistance (per 30 min block): ₦25,000**</li>
+                        <li>High-Level Scheduling/Filtering</li>
+                        <li>Priority Client Follow-up Management</li>
+                        <li>Strategic Communication Planning</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
         <!-- AI TOOL SECTION -->
         <section class="ai-section">
             <h2>💎 Communication Draftsman</h2>
@@ -344,11 +547,13 @@
                 <label for="service-type">Call Objective:</label>
                 <select id="service-type">
                     <option value="Client Follow-up Call">Client Follow-up Call (Sales)</option>
-                    <option value="Loyalty Test Opening">Loyalty Test Call Opening</option>
-                    <option value="Conflict Resolution Opening">Conflict Resolution Opening</option>
-                    <option value="Birthday Celebration Call">Birthday Celebration Call</option>
+                    <option value="Loyalty Test Opening">Loyalty Test Call Opening (Discreet)</option>
+                    <option value="Conflict Resolution Opening">Conflict Resolution Opening (Neutral)</option>
+                    <option value="Birthday Celebration Call">Birthday Celebration Call (Warm Tone)</option>
                     <option value="Motivational Call">Motivational Call (Discouraged friend)</option>
+                    <option value="Apology/Reconciliation Call">Apology/Reconciliation Call</option>
                     <option value="Executive Voice Over Script">Executive Voice Over Script (15s)</option>
+                    <option value="Proposal or Invitation Call">Proposal or Invitation Call (Formal)</option>
                 </select>
             </div>
             
@@ -369,8 +574,7 @@
             <h2>Ready to Begin?</h2>
             <p>Connect with Lovejoy Dail instantly to discuss your needs, from executive support to personal sentiments.</p>
             
-            <!-- GUARANTEED DIRECT WHATSAPP LINK (HTML ONLY) -->
-            <!-- Number: 2349151354072 -->
+            <!-- GUARANTEED DIRECT WHATSAPP LINK -->
             <a href="https://api.whatsapp.com/send?phone=2349151354072&text=Hello%2C%20I%20am%20interested%20in%20your%20Executive%20and%20Personal%20Communication%20services." 
                class="whatsapp-link" 
                target="_blank" 
