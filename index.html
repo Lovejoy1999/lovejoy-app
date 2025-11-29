@@ -1,23 +1,23 @@
-Ghost<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lovejoy Dail Branding Poster with Script Draftsman</title>
+    <title>Lovejoy Dail: Unified Communication Services</title>
+    <!-- Importing high-end serif and elegant script fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Playfair+Display:ital,wght@0,400;0,600;0-700&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@400;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --bg-pink: #fdf2f2;
-            --bg-cream: #fff9f5;
-            --text-dark: #4a3b3b;
-            --gold-start: #bf953f;
-            --gold-mid: #fcf6ba;
-            --gold-end: #b38728;
-            --soft-shadow: 0 10px 30px -10px rgba(166, 124, 124, 0.2);
-            --accent-gold: #d4a373;
-            --whatsapp-green: #25D366; /* Added for the CTA button */
+            --bg-light: #fefcfb;
+            --bg-cream: #fff5e8;
+            --text-dark: #3a2e2e;
+            --gold-primary: #a38c64; /* Deeper, rich gold */
+            --gold-accent: #c0a87a;
+            --whatsapp-green: #25D366; 
+            --box-shadow: 0 10px 40px rgba(0,0,0,0.1);
         }
 
         * {
@@ -27,179 +27,166 @@ Ghost<!DOCTYPE html>
         }
 
         body {
-            font-family: 'Playfair Display', serif;
-            background-color: #fceceb;
+            font-family: 'Cormorant Garamond', serif;
+            background-color: var(--bg-light);
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             padding: 20px;
-            overflow-x: hidden;
-        }
-
-        /* The Poster Container - Adjusted to be a functional web app card */
-        .poster {
-            width: 100%;
-            max-width: 500px;
-            min-height: 90vh; 
-            background: radial-gradient(circle at 10% 20%, rgb(255, 246, 236) 0%, rgb(255, 236, 236) 90%);
-            position: relative;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            border: 8px solid #fff;
             color: var(--text-dark);
-            border-radius: 15px;
-            padding-bottom: 20px; /* Added padding for bottom form */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect x="0" y="0" width="100" height="100" fill="%23fefcfb"/><circle cx="50" cy="50" r="1" fill="%23e8e2d7" opacity="0.5"/></svg>');
         }
 
-        /* Abstract Feminine Background Shapes */
-        .shape {
-            position: absolute;
-            filter: blur(60px);
-            z-index: 0;
-            opacity: 0.6;
-        }
-        .shape-1 { top: -10%; left: -20%; width: 400px; height: 400px; background: #ffe3e3; border-radius: 50%; }
-        .shape-2 { bottom: -5%; right: -10%; width: 350px; height: 350px; background: #fff0db; border-radius: 50%; }
-        .shape-3 { top: 40%; left: 30%; width: 200px; height: 200px; background: #ffd1d1; opacity: 0.4; border-radius: 50%; }
-
-        /* Silhouette / Image Overlay */
-        .silhouette-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
+        .container {
             width: 100%;
-            height: 60%;
-            background: url('https://images.unsplash.com/photo-1616091093729-c0463327eb58?q=80&w=1000&auto=format&fit=crop') no-repeat center bottom;
-            background-size: cover;
-            opacity: 0.15;
-            mix-blend-mode: multiply;
-            z-index: 0;
-            pointer-events: none;
-            mask-image: linear-gradient(to top, black 20%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to top, black 20%, transparent 100%);
-        }
-
-        /* Content Wrapper */
-        .content {
-            position: relative;
-            z-index: 2;
+            max-width: 650px; /* Slightly wider for better service segmentation */
+            background: var(--bg-cream);
+            border-radius: 20px;
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
             padding: 40px 30px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 100%;
+            position: relative;
         }
 
-        /* Gold Gradient Text Class */
-        .gold-text {
-            background: linear-gradient(to right, var(--gold-start), var(--gold-mid), var(--gold-end), var(--gold-start));
-            background-size: 200% auto;
-            color: #000; /* Fallback */
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shine 4s linear infinite;
-        }
-
-        @keyframes shine {
-            to {
-                background-position: 200% center;
-            }
-        }
-
-        /* Header Area */
         header {
             text-align: center;
             margin-bottom: 2rem;
-            width: 100%;
+            border-bottom: 1px solid rgba(163, 140, 100, 0.2);
+            padding-bottom: 20px;
         }
 
         h1 {
             font-family: 'Cinzel', serif;
-            font-weight: 600;
-            font-size: 1.8rem;
-            letter-spacing: 3px;
-            margin-bottom: 0.5rem;
+            font-weight: 700;
+            font-size: 2.5rem;
+            letter-spacing: 5px;
+            margin-bottom: 0.2rem;
             text-transform: uppercase;
-            line-height: 1.3;
+            color: var(--gold-primary);
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
         }
 
-        .subtitle {
+        .tagline {
             font-family: 'Pinyon Script', cursive;
-            font-size: 2rem;
-            color: var(--accent-gold);
-            margin-top: -10px;
+            font-size: 2.5rem;
+            color: var(--gold-accent);
             display: block;
-            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            margin-top: -10px;
         }
 
-        /* Border accent */
-        .separator {
-            height: 1px;
-            width: 60px;
-            background: linear-gradient(to right, transparent, var(--accent-gold), transparent);
-            margin: 1.5rem auto;
+        section {
+            padding: 30px 0;
+            border-bottom: 1px solid rgba(163, 140, 100, 0.1);
         }
 
-        /* Services List */
-        .services-list {
-            list-style: none;
-            width: 100%;
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
             text-align: center;
+            margin-bottom: 20px;
+            color: var(--gold-primary);
         }
-
-        .services-list li {
-            margin-bottom: 0.8rem;
-            font-size: 1rem;
-            letter-spacing: 0.5px;
-            color: #5d4e4e;
-            position: relative;
-        }
-
-        /* Luxury bullet points */
-        .services-list li::before {
-            content: '•';
-            color: var(--accent-gold);
-            margin-right: 10px;
-            font-size: 1.2rem;
-            vertical-align: middle;
-        }
-
-        /* Glass Panel behind text */
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            padding: 30px 20px;
-            border-radius: 20px;
-            width: 100%;
-            box-shadow: var(--soft-shadow);
-            margin-bottom: 30px;
-        }
-
-        /* AI Script Generator Section Styles (Reused for both) */
-        .ai-section, .contact-section {
-            width: 100%;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.7);
-            border-radius: 15px;
-            box-shadow: var(--soft-shadow);
-            margin-top: 15px;
-            border: 1px solid var(--accent-gold);
-        }
-
-        .ai-section h2, .contact-section h2 {
+        
+        h3 {
             font-family: 'Cinzel', serif;
             font-size: 1.2rem;
-            text-align: center;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-top: 25px;
             margin-bottom: 15px;
+            border-bottom: 1px dashed var(--gold-accent);
+            padding-bottom: 5px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .service-item {
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+            border-left: 3px solid var(--gold-accent);
+        }
+        
+        /* Ensure responsiveness for service grid */
+        @media (max-width: 500px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .service-item strong {
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--text-dark);
+            font-family: 'Cinzel', serif;
+        }
+
+        .service-item p {
+            font-size: 0.85rem;
+            color: #6a6060;
+            line-height: 1.4;
+        }
+        
+        /* Call to Action Section Styling */
+        .cta-section {
+            text-align: center;
+            padding: 30px 0;
+            border: none;
+        }
+        
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            font-style: italic;
             color: var(--text-dark);
         }
 
+        /* Direct WhatsApp Link Styling (Guaranteed to work) */
+        .whatsapp-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 35px;
+            background-color: var(--whatsapp-green);
+            color: white;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 2px;
+            font-size: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            text-decoration: none; 
+            font-weight: 600;
+        }
+        
+        .whatsapp-link svg {
+            margin-right: 10px;
+        }
+
+        .whatsapp-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(37, 211, 102, 0.6);
+            background-color: #128C7E;
+        }
+        
+        /* Utility Section Styling (AI Tools) */
+        .ai-section {
+            padding: 30px 20px;
+            background: var(--bg-light);
+            border-radius: 15px;
+            box-shadow: inset 0 0 10px rgba(163, 140, 100, 0.1);
+            margin-top: 20px;
+        }
+        
         .input-group {
             margin-bottom: 15px;
         }
@@ -208,39 +195,64 @@ Ghost<!DOCTYPE html>
             display: block;
             font-weight: 600;
             margin-bottom: 5px;
-            font-size: 0.9rem;
-            color: #6d5b5b;
+            font-size: 0.95rem;
+            color: #6a6060;
         }
 
         .input-group select,
         .input-group textarea,
-        .input-group input[type="text"],
-        .input-group input[type="email"],
-        .input-group input[type="tel"] {
+        .input-group input[type="text"] {
             width: 100%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-family: 'Playfair Display', serif;
+            padding: 10px;
+            border: 1px solid #e0d8d8;
+            border-radius: 8px;
+            font-family: 'Cormorant Garamond', serif;
             font-size: 1rem;
-            background: #fff;
-            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+            background: #ffffff;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.02);
+            resize: vertical;
+        }
+        
+        .generate-btn {
+            display: block;
+            width: 100%;
+            background: linear-gradient(45deg, var(--gold-primary), var(--gold-accent));
+            border: none;
+            padding: 12px 20px;
+            color: white;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(163, 140, 100, 0.5);
+            transition: all 0.3s ease;
+        }
+        
+        .generate-btn:hover:not(:disabled) {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 20px rgba(163, 140, 100, 0.7);
+        }
+        
+        .generate-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
         }
 
-        #script-output, #analysis-output {
+        #script-output {
             margin-top: 20px;
             padding: 15px;
-            border: 1px dashed var(--accent-gold);
+            border: 2px dashed var(--gold-accent);
             background: var(--bg-cream);
-            border-radius: 8px;
-            min-height: 50px;
+            border-radius: 10px;
+            min-height: 80px;
             font-style: italic;
             font-size: 0.95rem;
             white-space: pre-wrap;
             position: relative;
         }
         
-        #script-output.loading::after, #analysis-output.loading::after {
+        #script-output.loading::after {
             content: 'Drafting elegance...';
             position: absolute;
             top: 0;
@@ -250,215 +262,139 @@ Ghost<!DOCTYPE html>
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--accent-gold);
+            color: var(--gold-primary);
             background: rgba(255, 255, 255, 0.8);
             border-radius: 8px;
             font-style: normal;
-        }
-
-        .generate-btn {
-            display: block;
-            width: 100%;
-            background: linear-gradient(45deg, var(--gold-start), var(--accent-gold), var(--gold-end));
-            border: none;
-            padding: 12px 30px;
-            color: white;
             font-family: 'Cinzel', serif;
-            letter-spacing: 2px;
-            font-size: 0.9rem;
-            cursor: pointer;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(212, 163, 115, 0.5);
-            transition: all 0.3s ease;
-        }
-        
-        /* New WhatsApp Button Style */
-        .whatsapp-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            background-color: var(--whatsapp-green);
-            border: none;
-            padding: 12px 30px;
-            color: white;
-            font-family: 'Cinzel', serif;
-            letter-spacing: 2px;
-            font-size: 0.9rem;
-            cursor: pointer;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.5);
-            transition: all 0.3s ease;
-            margin-top: 10px;
-        }
-        
-        .whatsapp-btn svg {
-            margin-right: 10px;
-        }
-
-        .generate-btn:hover:not(:disabled), .whatsapp-btn:hover:not(:disabled) {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(212, 163, 115, 0.6), 0 8px 20px rgba(37, 211, 102, 0.7);
-        }
-        
-        .generate-btn:disabled, .whatsapp-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-        
-        /* Message Box for Confirmation */
-        #status-message {
-            text-align: center;
-            margin-top: 15px;
-            padding: 10px;
-            border-radius: 5px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: green;
-            background-color: #e6ffe6;
-            display: none;
-        }
-
-        /* Sparkles and Corners styles omitted for brevity, they remain the same */
-        
-        /* Footer */
-        .footer {
-            margin-top: auto;
-            font-size: 0.8rem;
-            color: #888;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            padding-top: 20px;
+            letter-spacing: 1px;
         }
         
     </style>
 </head>
 <body>
 
-    <div class="poster">
-        <!-- Ambient Background Shapes, Silhouette, Sparkles, and Corners remain the same -->
-        <div class="shape shape-1"></div>
-        <div class="shape shape-2"></div>
-        <div class="shape shape-3"></div>
-        <div class="silhouette-overlay"></div>
-        <div class="sparkle s1"></div>
-        <div class="sparkle s2"></div>
-        <div class="sparkle s3"></div>
-        <div class="sparkle s4"></div>
-        <div class="sparkle s5"></div>
-        <div class="corner tl"></div>
-        <div class="corner tr"></div>
-        <div class="corner bl"></div>
-        <div class="corner br"></div>
+    <div class="container">
+        <!-- HEADER -->
+        <header>
+            <h1 id="brand-name">Lovejoy Dail</h1>
+            <span class="tagline">Discreet, Professional, and Personal Communication</span>
+        </header>
 
-        <div class="content">
-            <header>
-                <h1 class="gold-text">Lovejoy Dail</h1>
-                <span class="subtitle">Call Services</span>
-                <div class="separator"></div>
-            </header>
-
-            <div class="glass-panel">
-                <ul class="services-list">
-                    <li>Birthday Calls</li>
-                    <li>Anniversary Calls</li>
-                    <li>Loyalty Test Calls</li>
-                    <li>Motivational Calls</li>
-                    <li>Professional Client Follow-up</li>
-                    <li>Customer Appreciation Calls</li>
-                    <li>Gentle Reminder Calls</li>
-                    <li>Personalized Comfort Calls</li>
-                    <li>Relationship Check-In Calls</li>
-                    <li>Special Event Message Calls</li>
-                </ul>
+        <!-- SERVICES SECTION -->
+        <section class="services-offered">
+            <h2>Our Complete Service Portfolio</h2>
+            
+            <h3>Executive & Business Services</h3>
+            <div class="services-grid">
+                
+                <div class="service-item">
+                    <strong>Virtual Assistance (Executive)</strong>
+                    <p>High-level support for scheduling, email filtering, and strategic communication management.</p>
+                </div>
+                
+                <div class="service-item">
+                    <strong>Conflict Resolution Calls</strong>
+                    <p>Neutral, professional intervention to mediate disputes or handle challenging client conversations.</p>
+                </div>
+                
+                <div class="service-item">
+                    <strong>Professional Voice Overs</strong>
+                    <p>Crisp, clear, and authoritative voice tracks for presentations, IVR systems, and brand content.</p>
+                </div>
+                
+                <div class="service-item">
+                    <strong>Client Follow-up & Reminders</strong>
+                    <p>Discreet and timely calls for invoicing, appointments, or important business obligations.</p>
+                </div>
             </div>
             
-            <!-- Gemini API Integration Section 1: Script Draftsman -->
-            <div class="ai-section">
-                <h2>✨ Elegant Script Draftsman ✨</h2>
-                <div class="input-group">
-                    <label for="service-type">Select Service:</label>
-                    <select id="service-type">
-                        <option value="Birthday Call">Birthday Call</option>
-                        <option value="Anniversary Call">Anniversary Call</option>
-                        <option value="Motivational Call">Motivational Call</option>
-                        <option value="Gentle Reminder Call">Gentle Reminder Call</option>
-                        <option value="Relationship Check-In Call">Relationship Check-In Call</option>
-                        <option value="Personalized Comfort Call">Personalized Comfort Call</option>
-                    </select>
+            <h3>Personal & Relationship Services</h3>
+            <div class="services-grid">
+                
+                <div class="service-item">
+                    <strong>Loyalty Test Calls</strong>
+                    <p>A discreet service to check the fidelity and commitment of a partner or associate.</p>
                 </div>
                 
-                <div class="input-group">
-                    <label for="context-input">Provide Context (e.g., "Friend is discouraged about a job search"):</label>
-                    <textarea id="context-input" rows="3" placeholder="Enter details for the call..."></textarea>
+                <div class="service-item">
+                    <strong>Celebration Calls (Birthday/Anniversary)</strong>
+                    <p>Personalized, thoughtful calls to mark special occasions with warmth and sincerity.</p>
                 </div>
                 
-                <button class="generate-btn" id="generate-script-btn">Generate Script Draft</button>
+                <div class="service-item">
+                    <strong>Motivational & Comfort Calls</strong>
+                    <p>Uplifting conversations designed to encourage, support, or provide personalized comfort.</p>
+                </div>
                 
-                <div id="script-output" role="status" aria-live="polite">
-                    Your luxury call script will appear here.
+                <div class="service-item">
+                    <strong>Customer/Relationship Appreciation</strong>
+                    <p>Genuine, personalized calls to show gratitude and strengthen important personal bonds.</p>
                 </div>
             </div>
+        </section>
+        
+        <!-- AI TOOL SECTION -->
+        <section class="ai-section">
+            <h2>💎 Communication Draftsman</h2>
+            <p style="font-size: 0.9rem; margin-bottom: 20px; text-align: center; color: #6a6060;">
+                Use our AI to instantly draft the perfect tone and structure for any call type.
+            </p>
+            <div class="input-group">
+                <label for="service-type">Call Objective:</label>
+                <select id="service-type">
+                    <option value="Client Follow-up Call">Client Follow-up Call (Sales)</option>
+                    <option value="Loyalty Test Opening">Loyalty Test Call Opening</option>
+                    <option value="Conflict Resolution Opening">Conflict Resolution Opening</option>
+                    <option value="Birthday Celebration Call">Birthday Celebration Call</option>
+                    <option value="Motivational Call">Motivational Call (Discouraged friend)</option>
+                    <option value="Executive Voice Over Script">Executive Voice Over Script (15s)</option>
+                </select>
+            </div>
+            
+            <div class="input-group">
+                <label for="context-input">Key Information & Desired Tone:</label>
+                <textarea id="context-input" rows="4" placeholder="Enter key context, recipient details, and specific tone requirements..."></textarea>
+            </div>
+            
+            <button class="generate-btn" id="generate-script-btn">Draft Script with Elegance</button>
+            
+            <div id="script-output" role="status" aria-live="polite">
+                Your high-caliber communication draft will appear here.
+            </div>
+        </section>
 
-            <!-- New Lead Capture / Contact Section -->
-            <div class="contact-section">
-                <h2>💌 Inquire Now </h2>
-                <div id="status-message"></div>
-                <form id="contact-form">
-                    <div class="input-group">
-                        <label for="customer-name">Your Name:</label>
-                        <input type="text" id="customer-name" required placeholder="e.g., Jane Doe">
-                    </div>
-                    <div class="input-group">
-                        <label for="customer-email">Your Email (for follow-up):</label>
-                        <input type="email" id="customer-email" placeholder="Optional">
-                    </div>
-                    <div class="input-group">
-                        <label for="customer-message">Tell us about your need:</label>
-                        <textarea id="customer-message" rows="3" required placeholder="I need a professional follow-up call for a client."></textarea>
-                    </div>
-                    <button type="submit" class="whatsapp-btn">
-                        <!-- WhatsApp Icon SVG -->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-whatsapp"><path d="M12.9 5C6 5 2 10.5 2 15c0 3.5 2.5 5 5 5h2l-2 2h6v-2h2c2.5 0 5-1.5 5-5 0-4.5-4-10-10.9-10z"/><path d="M12.5 13.5v-3.5h-2"/></svg>
-                        Send Inquiry via WhatsApp
-                    </button>
-                </form>
-            </div>
+        <!-- CTA AND CONTACT SECTION -->
+        <section class="cta-section">
+            <h2>Ready to Begin?</h2>
+            <p>Connect with Lovejoy Dail instantly to discuss your needs, from executive support to personal sentiments.</p>
+            
+            <!-- GUARANTEED DIRECT WHATSAPP LINK (HTML ONLY) -->
+            <!-- Number: 2349151354072 -->
+            <a href="https://api.whatsapp.com/send?phone=2349151354072&text=Hello%2C%20I%20am%20interested%20in%20your%20Executive%20and%20Personal%20Communication%20services." 
+               class="whatsapp-link" 
+               target="_blank" 
+               id="direct-whatsapp-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-whatsapp"><path d="M12.9 5C6 5 2 10.5 2 15c0 3.5 2.5 5 5 5h2l-2 2h6v-2h2c2.5 0 5-1.5 5-5 0-4.5-4-10-10.9-10z"/><path d="M12.5 13.5v-3.5h-2"/></svg>
+                Chat with an Advisor
+            </a>
+            <p style="margin-top: 15px; font-size: 0.85rem; color: #a38c64; font-style: normal;">WhatsApp: +234 915 135 4072</p>
 
-            <!-- Gemini API Integration Section 2: Tone Analyzer (Remains the same) -->
-            <div class="ai-section" style="margin-top: 30px;">
-                <h2>✨ Tone & Refinement Analyzer ✨</h2>
-                <div class="input-group">
-                    <label for="analysis-input">Paste Text for Analysis (e.g., Client message, Email draft):</label>
-                    <textarea id="analysis-input" rows="4" placeholder="Enter text to evaluate for tone, style, and polish..."></textarea>
-                </div>
-                
-                <button class="generate-btn" id="analyze-tone-btn">Analyze & Refine</button>
-                
-                <div id="analysis-output" role="status" aria-live="polite">
-                    Analysis results will appear here.
-                </div>
-            </div>
-
-            <div class="footer">
-                Est. 2024
-            </div>
-        </div>
+        </section>
+        
     </div>
 
     <script type="module">
         // --- CONFIGURATION REQUIRED ---
-        // REPLACE THIS WITH YOUR OWN WHATSAPP PHONE NUMBER (e.g., '2348012345678')
-        // Use the international format without '+' or leading zeros.
-        const YOUR_WHATSAPP_NUMBER = 9074899191; 
+        // Your WhatsApp phone number in international format (no +, no spaces)
+        const YOUR_WHATSAPP_NUMBER = '2349151354072'; 
         // ---------------------------------
         
         // Firebase and API Constants
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, collection, addDoc, setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { getFirestore, setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
         
-        // Use debug logging for Firestore for development purposes
         setLogLevel('Debug');
 
         // --- Global Firebase Variable Initialization ---
@@ -466,25 +402,15 @@ Ghost<!DOCTYPE html>
         const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
         const __initial_auth_token = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
         
-        // IMPORTANT: Gemini API Key
+        // IMPORTANT: Gemini API Key (Required for Script Draftsman)
         const apiKey = "AIzaSyD8mYdIHoGg_4tIkdKDSiXZXM9rWUMjZZZA"; 
-
 
         // DOM Elements
         const generateButton = document.getElementById('generate-script-btn');
         const serviceType = document.getElementById('service-type');
         const contextInput = document.getElementById('context-input');
         const scriptOutput = document.getElementById('script-output');
-        const analyzeButton = document.getElementById('analyze-tone-btn');
-        const analysisInput = document.getElementById('analysis-input');
-        const analysisOutput = document.getElementById('analysis-output');
-        
-        // New Contact Form Elements
-        const contactForm = document.getElementById('contact-form');
-        const customerName = document.getElementById('customer-name');
-        const customerEmail = document.getElementById('customer-email');
-        const customerMessage = document.getElementById('customer-message');
-        const statusMessage = document.getElementById('status-message');
+        const directLink = document.getElementById('direct-whatsapp-link');
 
 
         let auth, db, userId;
@@ -509,89 +435,16 @@ Ghost<!DOCTYPE html>
             }
         }
         
-        // --- Lead Capture (New Functionality) ---
-
         /**
-         * Saves the customer lead data to Firestore before redirecting to WhatsApp.
-         * @param {string} name - Customer name.
-         * @param {string} email - Customer email (optional).
-         * @param {string} message - Customer inquiry message.
+         * Updates the direct WhatsApp link to ensure it always uses the latest configured number.
+         * The text is also made dynamic based on the brand name.
          */
-        async function saveLeadToFirestore(name, email, message) {
-            if (!db) {
-                console.error("Firestore is not initialized.");
-                return;
-            }
-
-            try {
-                // Public data collection path: /artifacts/{appId}/public/data/leads
-                const leadsCollectionRef = collection(db, `artifacts/${appId}/public/data/leads`);
-                
-                await addDoc(leadsCollectionRef, {
-                    timestamp: new Date().toISOString(),
-                    customerName: name,
-                    customerEmail: email || 'N/A',
-                    message: message,
-                    status: 'NEW',
-                    source: 'Lovejoy Dail Landing Page',
-                    userId: userId,
-                });
-                
-                statusMessage.textContent = "Inquiry saved! Redirecting to WhatsApp...";
-                statusMessage.style.backgroundColor = '#e6ffe6';
-                statusMessage.style.color = 'green';
-                statusMessage.style.display = 'block';
-
-            } catch (error) {
-                console.error("Error writing document to Firestore:", error);
-                // Even if Firestore fails, we still proceed with WhatsApp notification
-                statusMessage.textContent = "Database error. Proceeding to WhatsApp...";
-                statusMessage.style.backgroundColor = '#fff8e6';
-                statusMessage.style.color = 'orange';
-                statusMessage.style.display = 'block';
-            }
-        }
-
-        /**
-         * Handles form submission: saves data and redirects to WhatsApp.
-         */
-        async function handleContactSubmit(event) {
-            event.preventDefault();
-            
-            const name = customerName.value.trim();
-            const email = customerEmail.value.trim();
-            const message = customerMessage.value.trim();
-
-            if (!name || !message) {
-                // Form validation is handled by 'required' attributes in HTML, but check here just in case.
-                return;
-            }
-            
-            contactForm.querySelector('.whatsapp-btn').disabled = true;
-            
-            // 1. Save data to Firestore (Non-blocking call)
-            await saveLeadToFirestore(name, email, message);
-
-            // 2. Prepare WhatsApp redirect
-            // Pre-fill the WhatsApp message with the customer's inquiry details
-            const whatsappText = encodeURIComponent(
-                `[NEW INQUIRY - Lovejoy Dail]\n\nHello, I'm ${name} and I have the following inquiry about your call services:\n\n"${message}"`
-            );
-            
-            const whatsappURL = `https://wa.me/${234907489919}?text=${whatsappText}`;
-
-            // 3. Redirect the user
-            // Set a short delay to allow the user to see the confirmation message
-            setTimeout(() => {
-                window.location.href = whatsappURL;
-            }, 1500);
-            
-            // Re-enable button in case the user returns to the page
-            contactForm.querySelector('.whatsapp-btn').disabled = false;
+        function updateWhatsAppLink() {
+             const encodedText = encodeURIComponent(`Hello, I am interested in your Executive and Personal Communication services.`);
+             directLink.href = `https://api.whatsapp.com/send?phone=${YOUR_WHATSAPP_NUMBER}&text=${encodedText}`;
         }
 
         // --- Gemini API Call Utilities (Existing) ---
-        
         const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
         async function fetchWithRetry(url, options, retries = 3) {
@@ -617,13 +470,13 @@ Ghost<!DOCTYPE html>
             }
         }
 
-        // --- Feature 1: Script Generation Logic (Existing) ---
+        // --- Feature: Script Generation Logic (AI) ---
         async function generateScript() {
             const selectedService = serviceType.value;
             const context = contextInput.value.trim();
 
             if (!context) {
-                scriptOutput.textContent = "Please provide context (who, what, why) for the call to draft the script.";
+                scriptOutput.textContent = "Please provide context and tone requirements to draft the script.";
                 return;
             }
 
@@ -631,7 +484,7 @@ Ghost<!DOCTYPE html>
             scriptOutput.classList.add('loading');
             generateButton.disabled = true;
 
-            const systemPrompt = `You are a specialist in creating elegant, personalized, and chic phone call scripts for a luxury call service. The scripts must sound polished, warm, professional, and sophisticated. Use gentle, persuasive, and encouraging language. The script should be brief and suitable for a 1-3 minute conversation, focusing on the core message. Format the output neatly as a short script, including a suggested opening and closing line.`;
+            const systemPrompt = `You are a specialist in creating elegant, personalized, and chic phone call scripts for a premium communication service. The scripts must sound polished, warm, professional, and sophisticated. Use gentle, persuasive, and encouraging language, suitable for both executive and personal contexts. The script should be brief and suitable for a 1-3 minute conversation, focusing on the core message. Format the output neatly as a short script, including a suggested opening and closing line.`;
             
             const userQuery = `Generate a call script for a "${selectedService}" using the following specific context: "${context}".`;
             
@@ -668,65 +521,14 @@ Ghost<!DOCTYPE html>
             }
         }
 
-        // --- Feature 2: Tone Analysis Logic (Existing) ---
-        async function analyzeTone() {
-            const textToAnalyze = analysisInput.value.trim();
-
-            if (!textToAnalyze) {
-                analysisOutput.textContent = "Please paste some text into the box to begin the analysis.";
-                return;
-            }
-
-            analysisOutput.textContent = "";
-            analysisOutput.classList.add('loading');
-            analyzeButton.disabled = true;
-
-            const systemPrompt = `You are a highly sophisticated editorial assistant for a luxury communication service (Lovejoy Dail). Your task is to analyze the user-provided text for tone, sentiment, and style. Provide a two-part response: 1. A concise, professional analysis (e.g., 'Tone: Highly formal, slightly distant. Sentiment: Neutral/Positive'). 2. Three specific, chic suggestions on how to refine the text to better match a warm, elegant, and personalized luxury brand standard.`;
-            
-            const userQuery = `Analyze and refine the following text: "${textToAnalyze}"`;
-            
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
-
-            const payload = {
-                contents: [{ parts: [{ text: userQuery }] }],
-                systemInstruction: { parts: [{ text: systemPrompt }] },
-            };
-            
-            try {
-                const response = await fetchWithRetry(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-
-                const result = await response.json();
-                const text = result.candidates?.[0]?.content?.parts?.[0]?.text;
-
-                if (text) {
-                    analysisOutput.textContent = text;
-                } else {
-                    console.error("API response error:", result);
-                    analysisOutput.textContent = "Error: Could not perform tone analysis. Please try again.";
-                }
-
-            } catch (error) {
-                console.error("Error during API call:", error);
-                analysisOutput.textContent = `A communication error occurred: ${error.message}`;
-            } finally {
-                analysisOutput.classList.remove('loading');
-                analyzeButton.disabled = false;
-            }
-        }
-
 
         // --- Event Listeners and Setup ---
         window.onload = async () => {
             await initFirebase();
             generateButton.addEventListener('click', generateScript);
-            analyzeButton.addEventListener('click', analyzeTone);
             
-            // New Event Listener for the contact form
-            contactForm.addEventListener('submit', handleContactSubmit);
+            // 1. Ensure the correct number is set on the link
+            updateWhatsAppLink();
         };
         
     </script>
